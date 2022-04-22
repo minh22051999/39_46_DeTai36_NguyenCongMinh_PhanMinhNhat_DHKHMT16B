@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="vi">
+    <head>
+        <meta charset="utf-8">
+        <title>Sách văn học</title>
+       <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="shortcut icon" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/favicon.png">
+        <!-- CSS -->
+        <link rel="stylesheet" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/CSS/bootstrap.min.css">
+        <link rel="stylesheet" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/CSS/bootstrap-select.css">
+        <link rel="stylesheet" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/CSS/font-awesome.min.css">
+        <link rel="stylesheet" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/CSS/style.css">  
+        <script src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/JS/jquery.min.js"></script>
+        <script src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/JS/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function () {
+    
+    $("#DK").click(function () {
+        $("#mymodal").modal();
+    });
+
+    //Check full name
+    function validName() {
+        var name = $("#name").val().trim();
+        var regex = /^[A-Z][a-zA-Z]*( [A-Z][a-zA-Z]*)*$/;
+        if (name == "") {
+            $("#tbname").html("* Không được để trống");
+            return false;
+        }
+
+        if (!regex.test(name)) {
+            $("#tbname").html("Bắt đầu bằng ký tự viết hoa");
+            return false;
+        }
+
+        $("#tbname").html("*");
+        return true;
+    }
+
+    $("#name").blur(validName);
+
+
+    function validAddress() {
+        var address = $("#address").val().trim();
+
+        if (address == "") {
+            $("#tbaddress").html("Không được để trống");
+            return false;
+        }
+
+        $("#tbaddress").html("*");
+        return true;
+    }
+
+    $("#address").blur(validAddress);
+
+
+    function validPhone() {
+        var phone = $("#phone").val().trim();
+        var regex = /^090-[0-9]{4}-[0-9]{3}$/;
+        if (phone == "") {
+            $("#tbphone").html("* Không được để trống");
+            return false;
+        }
+
+        if (!regex.test(phone)) {
+            $("#tbphone").html("090-0000-000");
+            return false;
+        }
+
+        $("#tbphone").html("*");
+        return true;
+    }
+
+    $("#phone").blur(validPhone);
+
+
+    function validEmail() {
+        var email = $("#email").val().trim();
+        var regex = /^\w+@\w+(\.\w+){1,2}$/;
+        if (email == "") {
+            $("#tbemail").html("* Không được để trống");
+            return false;
+        }
+
+        if (!regex.test(email)) {
+            $("#tbemail").html("a@b.c or a@b.c.d");
+            return false;
+        }
+
+        $("#tbemail").html("*");
+        return true;
+    }
+
+    $("#email").blur(validEmail);
+
+
+   
+
+
+    function validPass() {
+        var pas = $("#passworddn").val().trim();
+        var regex = /^[a-zA_Z0-9]{8}$/;
+
+        if (pas == "") {
+            $("#tbpassworddn").html("* Không được để trống");
+            return false;
+        }
+        if (!regex.test(pas)) {
+            $("#tbpassworddn").html("Mật khẩu phải có 8 ký tự");
+            return false;
+        }
+
+        $("#tbpassworddn").html("*");
+        return true;
+    }
+    $("#passworddn").blur(validPass);
+
+    function validPass2() {
+        var pas = $("#passworddn2").val().trim();
+        var regex = /^[a-zA_Z0-9]{8}$/;
+        var pas2 = $("#passworddn").val().trim();
+        if (pas == "") {
+            $("#tbpassworddn2").html("* Không được để trống");
+            return false;
+        }
+
+        if (pas != pas2) {
+            $("#tbpassworddn2").html("Phải giống mật khẩu đã nhập trước đó");
+            return false;
+        }
+        if (!regex.test(pas)) {
+            $("#tbpassworddn2").html("Mật khẩu phải có 8 ký tự");
+            return false;
+        }
+        $("#tbpassworddn2").html("*");
+        return true;
+    }
+    $("#passworddn2").blur(validPass2);
+
+    $("#dk").click(function () {
+
+        if (!validName() || !validPhone() || !validAddress() || !validEmail() || !validPass() || !validPass2() ){
+            $("#thongbao").html("Mời bạn nhập đúng và đầy đủ thông tin");
+            return false;
+        }
+            
+        var name = $("#name").val().trim();
+        var address = $("#address").val().trim();
+        
+        var phone = $("#phone").val().trim();
+        var email = $("#email").val().trim();
+        var pass1 = $("#passworddn").val().trim();
+        var pass2 = $("#passworddn2").val().trim();
+
+        alert("Đăng ký tài khoản thành công" + " tên TK " + name + " | Địa chỉ " + address + " | SDT " + phone + "  Email " + email + " | Password " + pass1 + pass2);
+
+
+        $("#mymodal").modal("hide");
+        
+           
+
+    });
+});
+
+
+$(document).ready(function () {
+
+
+    $("#DN").click(function () {
+        $("#mymodalDN").modal();
+    });
+
+
+    function validName1() {
+        var name = $("#name1").val().trim();
+
+        if (name == "") {
+            $("#tbname1").html("* Không được để trống");
+            return false;
+        }
+
+
+        $("#tbname1").html("*");
+        return true;
+    }
+
+    $("#name1").blur(validName1);
+
+
+    function validPassword1() {
+        var pass1 = $("#password1").val().trim();
+        var regex = /^[a-zA-Z0-9]{8}$/;
+        if (pass1 == "") {
+            $("#tbpassword1").html("* Không được để trống");
+            return false;
+        }
+
+        if (!regex.test(pass1)) {
+            $("#tbpassword1").html("/^[a-zA-Z0-9]{8}$/");
+            return false;
+        }
+
+        $("#tbpassword1").html("*");
+        return true;
+    }
+
+    $("#password1").blur(validPassword1);
+
+
+
+
+    $("#dn").click(function () {
+
+        if (!validName1() || !validPassword1())
+          return false;
+
+        var name = $("#name1").val().trim();
+        var pass = $("#password1").val().trim();
+
+        alert("Đăng nhập thành công" + "tên TK: " + name + " | Password: " + pass);
+        $("#mymodal").modal("hide");
+    });
+});
+$(document).ready(function () {
+
+
+$("#sp1").click(function () {
+$("#mymodalsp1").modal();
+});
+});
+
+</script>
+    </head> <!-- head -->
+    <body class="sticky-header">
+        <div id="bodyContainer" class="body-innerwrapper ">
+            <header>
+                <div id="newedge-top-bar">
+                    <div class="container">
+                        <div class="row">
+                            <div id="logo" class="col-xs-4 col-sm-3 col-md-3 hidden-sm hidden-xs">
+                                
+                                <h1>
+                                    <a title="Website giới thiệu, bán sách trực tuyến" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/index.html"><img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/logo.jpg" alt="logo"></a>
+                                </h1>
+                                
+                                
+                            </div> <!-- //logo -->
+                            <div class="col-sm-12 col-md-7" style=" height:65px;">
+                                <div class="search-wrapper" style="display: block;">
+                                    <input id="search" name="searchword" value="" maxlength="200" class="inputboxnewedge-top-search" type="text" size="20" placeholder="Tìm kiếm sách...">
+                                    <i onclick="searchNovel()" id="search-close" class="fa"><img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/search.png" width="20px" height="20px"/></i>
+                                </div>
+                            </div>
+                        </div> 
+                    </div> 
+                </div> 	
+
+                <nav id="navigation-bar" class="navigation hidden-sm hidden-xs">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <ul class="list-inline megamenu-parent">
+                                    <li><a title="Trang chủ" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/index.html"><img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/home-icon-silhouette.png" width="30px" height="20px"/> Trang chủ</a></li>
+                                    <li><a title="Giới thiệu" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/gioithieu.html">Giới thiệu</a></li>
+                                    <li class="has-child">
+                                        <a href="">Danh mục <img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/thin-arrowheads-pointing-down.png" width="10px" height="10px"/></a>
+                                        <div class="dropdown-inner">
+                                            <ul class="dropdown-items">
+                                                
+                                                <li><a title="Sách Văn học" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/sach_van_hoc.html">Sách Văn học</a></li>
+                                                
+                                                <li><a title="Sách khoa học" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/sach_khoa_hoc.html">Sách khoa học</a></li>
+                                                
+                                                <li><a title="Sách thiếu nhi" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/sach_thieu_nhi.html">Sách thiếu nhi</a></li>
+                                            
+                                                <li><a title="Truyện" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/truyen.html">Truyện</a></li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li><a href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/giohang.html">Giỏ hàng</a></li>
+                                    <li><a href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/thanhtoan.html">Thanh toán</a></li>
+                                   
+                                    <li><a title="Đăng ký" href="#" id="DK">Đăng ký</a></li>
+                                    <li><a title="Đăng nhập" href="#" id="DN">Đăng nhập</a></li>
+                                </ul>
+                            </div>
+                        </div> 
+                    </div>
+                </nav>
+            </header>
+
+
+<section class="main-wrapper">
+<div class="container">
+<div class="row">
+    <div class="col-lg-12">
+        <div class="section-title">
+            <ol class="breadcrumb pull-left">
+                <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <i class="fa"><img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/home-icon-silhouette.png" width="30px" height="20px"/> </i>
+                    <a itemprop="url" title="Trang chủ" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/index.html">
+                        <span itemprop="title">Trang chủ</span>
+                    </a>
+                </li>
+                    <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+                        <h1 style="font-size: 16px; display: inline-block; line-height: 1;">
+                            <a itemprop="url" title="Sách văn học" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/sach_van_hoc.html" class="active">
+                                <span itemprop="title">
+                                    Sách văn học
+                                </span>
+                            </a>
+                        </h1>
+                    </li>
+                </ol>
+                <div class="novel-order pull-right see-all">
+                    <select id="categoryOrder" class="form-control" onchange="changeCategoryOrder()">
+                        <option selected value="update_time">Sách mới cập nhật</option>
+                        <option  value="view">Nhiều người xem</option>
+                        <option  value="ab">Sắp theo thứ tự ABC</option>
+                        <option  value="abr">Sắp ngược thứ tự ABC</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <!-- start new novels -->
+                
+                <div class="col-sm-6">
+                    <div class="latest-video sub-leading-item media">
+                        <div class="latest-video-inner">
+                            <div class="img-wrapper media-left">
+                                <span class="wrap-caption">
+                                    
+                                    
+                                </span>
+                                <img height="180px" src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/tat_den.jpg" alt="Tắt đèn" onclick="window.location.href = '../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/tat_den.html';">
+                            </div>
+                            <div class="video-post-info media-body">
+                                <h3 class="vp-cat novel-name">
+                                    <a title="Tắt đèn" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/tat_den.html">Tắt đèn</a>
+                                </h3>
+                                <ul class="chapter">
+                                    <div class="chapter-info">
+                                        <span>Thể loại: </span>
+                                        
+                                        <a title="Sách văn học" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/sach_van_hoc.html">Sách văn học</a> 
+
+                                        
+                                    </div>
+                                    <div class="chapter-info">
+                                        <span>Tác giả: </span><a title="NgoTatTo" href="#">Ngô Tất Tố</a>
+                                    </div>
+                                    <div class="gia">
+                                        <span>Giá: 100.000 VND</span></a>
+                                    </div><br>
+                                    <input id="btnmua" class="button" type="button" style="background-color:#ffd800; font-weight:bold; width: 100px;" onclick="myClick()" value="Mua sách" />
+                                   
+                                </ul>
+                            </div>
+                        </div>
+                    </div>  
+                </div> <!-- //sub-leading-item -->
+                
+
+                
+                
+                
+                <div style="clear: both;"></div>
+            </div> <!-- //row -->
+        </div> <!-- //Latest Videos -->
+    </div> <!-- //col-sm-9 -->	
+                </div>
+            <footer>
+                <div class="footer-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div id="bottom1" class="col-sm-6 col-md-3">
+                                <p class="footer-logo">
+                                    <img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/logo.jpg" alt="logo">
+                                </p>
+                                <p>Web giới thiệu và bán sách trực tuyến</p>
+                                <p>Hỗ trợ 24/24</p>
+                                <div class="footer-contact">
+                                    <p>
+                                        <span>Email:</span>
+                                        phannht98@gmail.com or minhnguyen22051999@gmail.com
+                                    </p>
+                                    <p>
+                                        <span>DT:</span>
+                                        +84971371235
+                                    </p>
+                                </div>
+                            </div> 
+
+                            <div id="bottom2" class="col-sm-6 col-md-3">
+                                <div class="bottom-menu">
+                                    <p class="title">Quick Link</p>
+                                    <div class="pull-left">
+                                        <ul class="menu">
+                                            <li><a title="Trang chủ" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/index.html">Trang chủ</a></li>
+                                            <li><a title="Sách văn học" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/sach_van_hoc.html">Sách văn học</a></li>  
+                                            <li><a title="Sách khoa học" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/sach_khoa_hoc.html">Sách khoa học</a></li>
+                                            
+                                        </ul>
+                                    </div>
+                                    <div class="pull-right">
+                                        <ul class="menu">
+                                            <li><a title="Sách thiếu nhi" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/sach_thieu_nhi.html">Sách thiếu nhi</a></li>
+                                            <li><a title="Truyện" href="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/truyen.html">Truyện</a></li>
+                                           
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div id="bottom3" class="col-sm-6 col-md-3">
+                                <div class="">
+                                    <p class="title">Địa chỉ</p>
+                                    <div class="tags">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.8576365001068!2d106.68530891480113!3d10.822204892290483!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174deb3ef536f31%3A0x8b7bb8b7c956157b!2zVHLGsOG7nW5nIMSQ4bqhaSBo4buNYyBDw7RuZyBuZ2hp4buHcCBUUC5IQ00!5e0!3m2!1svi!2s!4v1593878720779!5m2!1svi!2s" width="260" height="260" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                    
+                                    </div>
+                                </div>
+                            </div> 
+
+                            <div id="bottom4" class="col-sm-6 col-md-3">
+                                <div class="social-wrapper">
+                                    <p class="title">Social Link</p>
+                                    <ul class="social-icons">
+                                        <li><a target="_blank" href="https://www.facebook.com/minhh.nguyen.37266136"><img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/facebook.png" width="30px" height="30px"/></i> Facebook</a></li>
+                                        <li><a target="_blank" href="#"><img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/twitter.png" width="30px" height="30px"/></i> Twitter</a></li>
+                                        <li><a target="_blank" href="#"><img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/google-plus.png" width="30px" height="30px"/></i> Google Plus</a></li>
+                                        <li><a target="_blank" href="#"><img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/pinterest.png" width="30px" height="30px"/></i> Pinterest</a></li>
+                                        <li><a target="_blank" href="#"><img src="../39_46_DeTai36_NguyenCongMinh_PhanMinhNhat_DHKHMT16B/Images/linkedin.png" width="30px" height="30px"/></i> Linkedin</a></li>
+                                    </ul>
+                                </div>
+                            </div> 
+                        </div> 
+                    </div> 
+                </div> 
+
+                <div class="copyright-wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <p class="copyright"> Copyright © 2019. All rights reserved.</p>
+                            </div>
+                        </div> 
+                    </div> 
+                </div> 
+            </footer>
+        </div> <!-- //body-innerwrapper -->
+        <div class="modal fade" id="mymodal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header"><h2>Đăng ký tài khoản</h2></div>
+                    <div class="modal-body">
+
+                        <form class="form">
+                            <div class="form-group">
+                                <div id="thongbao" class="text-danger" style="text-align: center;"></div>
+                            </div>
+                            <div class="form-group">
+                                <label for="name">Họ và tên: <span class="text-danger" id="tbname">*</span></label>
+                                <input type="text" id="name" class="form-control" placeholder="Enter customer full name" autocomplete="off" value="Nguyen Van An" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="address">Đia chỉ: <span class="text-danger" id="tbaddress">*</span></label>
+                                <textarea id="address" class="form-control" rows="4">12 Nguyen Van Bao QV TPHCM</textarea>
+                            </div>
+
+                             
+
+                            <div class="form-group">
+                                <label for="email">Email: <span class="text-danger" id="tbemail">*</span></label>
+                                <input type="email" id="email" class="form-control" placeholder="Enter customer email" autocomplete="off" value="an@gmail.com" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone">SDT: <span class="text-danger" id="tbphone">*</span></label>
+                                <input type="text" id="phone" class="form-control" placeholder="Enter customer phone number" autocomplete="off" value="090-1234-987" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="passworddn">Mật khẩu: <span class="text-danger" id="tbpassworddn">*</span></label>
+                                <input type="password" id="passworddn" class="form-control" placeholder="Enter customer phone number" autocomplete="off" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="passworddn2">Nhập lại mật khẩu: <span class="text-danger" id="tbpassworddn2">*</span></label>
+                                <input type="password" id="passworddn2" class="form-control" placeholder="Enter customer phone number" autocomplete="off" />
+                            </div>
+
+
+                            <input id="dk" class="btn btn-success btn-block" type="button" value="đăng ký" />
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="mymodalDN">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header"><h2>Đăng nhập</h2></div>
+                    <div class="modal-body">
+
+                        <form class="form">
+                            <div class="form-group">
+                                <label for="name1">SDT/Email: <span class="text-danger" id="tbname1">*</span></label>
+                                <input type="text" id="name1" class="form-control" placeholder="Enter customer full name" autocomplete="off" />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password1">Password: <span class="text-danger" id="tbpassword1">*</span></label>
+                                <input type="password" id="password1" class="form-control" placeholder="Enter your password" autocomplete="off" />
+                            </div>
+
+
+
+
+                            <input id="dn" class="btn btn-success btn-block" type="button" value="đăng nhập" />
+                        </form>
+
+
+                    </div>
+                    <div class="modal-footer"></div>
+                </div>
+            </div>
+        </div>
+</body></html>
